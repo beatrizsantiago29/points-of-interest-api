@@ -10,6 +10,29 @@ API REST desenvolvida para gerenciar e pesquisar **Pontos de Interesse (POIs)** 
 * **SQLite** (Banco de dados relacional leve)
 * **SQLAlchemy** (ORM para persistência de dados)
 
+## 📋 Descrição do problema
+
+O desafio proposto consiste em gerenciar Pontos de Interesse (POIs) para um serviço de localização GPS. O sistema deve ser capaz de:
+1. **Cadastrar** novos pontos com nome e coordenadas (X, Y) não negativas.
+2. **Listar** todos os pontos cadastrados.
+3. **Buscar por Proximidade**: Dado um ponto de referência (X, Y) e uma distância máxima (dmax), o sistema deve retornar todos os POIs que estejam dentro dessa distância.
+
+## 💡 Solução
+
+A solução foi desenvolvida utilizando o framework **FastAPI** e o banco de dados **SQLite**, pela sua praticidade em ambientes de desenvolvimento, mapeado através do **SQLAlchemy (ORM)**. Para controle de versões e migrações foi implementado o **Alembic**, que garante integridade do esquema do banco e permite evoluções futuras.
+
+### 📐 Busca por Proximidade
+Essa solução consiste no cálculo da **Distância Euclidiana**. Para cada busca, a API processa as coordenadas armazenadas e aplica a fórmula matemática:
+
+<div align="center">
+    
+$d = \sqrt{(xPoi - xRef)^2 + (yPoi - yRef)^2}$
+    
+</div>
+
+
+Apenas os registros onde **d ≤ dmax** são retornados, garantindo precisão na busca em um plano bidimensional, conforme solicitado pelo desafio.
+
 ## 🛠️ Como Instalar e Rodar
 
 1. Clone o repositório e entre na pasta.
