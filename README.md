@@ -29,5 +29,6 @@ API REST desenvolvida para gerenciar e pesquisar **Pontos de Interesse (POIs)** 
 | Método | Endpoint | Descrição |
 | :--- | :--- | :--- |
 | **GET** | /poi | Lista todos os POIs cadastrados. |
+| **GET** | /poi/procurar-proximos | Busca POIs por proximidade (necessário: x, y, dmax). |
 | **POST** | /poi/cadastrar-ponto | Cadastra um novo ponto de interesse. |
-| **POST** | /poi/listar-proximos | Busca POIs por proximidade (necessário: x, y, dmax). |
+| **DELETE** | /poi/{id_ponto} | Apaga um ponto de interesse (necessário: id). |
